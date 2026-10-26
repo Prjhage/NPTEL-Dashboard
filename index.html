@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sensor Technologies: Physics, Fabrication, And Circuits | NPTEL Swayam</title>
+  <meta name="description" content="NPTEL Swayam Course â€“ Sensor Technologies: Physics, Fabrication, And Circuits. Track your progress, view assignments, and access reading materials." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- =============================================
+       PAGE 0 — SWAYAM LOGIN (LANDING PAGE)
+       ============================================= -->
+  <div id="page-login" class="page active">
+
+    <!-- Swayam SSO Header -->
+    <header class="login-header">
+      <div class="login-header-left">
+        <img src="image.png" alt="Swayam" class="login-swayam-logo" />
+        <img src="ministry_logo.png" alt="Ministry of Education" class="login-ministry-logo" />
+      </div>
+      <nav class="login-nav">
+        <a href="#" class="login-nav-link">About Swayam</a>
+        <a href="#" class="login-nav-link">All Courses</a>
+        <a href="#" class="login-nav-link">Partner Institutions</a>
+        <a href="#" class="login-nav-link">Local Chapters</a>
+        <a href="#" class="login-nav-link">Swayam Plus</a>
+      </nav>
+    </header>
+
+    <!-- Swayam Notification Banner -->
+    <div class="login-banner">
+      <span>Sign in to SWAYAM using your Google (Gmail), Microsoft accounts (MSN, Hotmail etc.), or SWAYAM account. If you don't have one, select <a href="#" class="login-signup-link">Sign Up</a> now to create a new account.</span>
+    </div>
+
+    <!-- Login Body with Authentic Student Background Photo -->
+    <div class="login-body">
+      <div class="login-card-container">
+        <div class="login-card">
+          <h2 class="login-title">Sign in to SWAYAM</h2>
+
+          <!-- Social Login Buttons -->
+          <div class="social-login-row">
+            <button type="button" class="btn-social" onclick="fillDemoCreds()" title="Click to fill credentials">
+              <svg class="social-icon" viewBox="0 0 24 24" width="18" height="18">
+                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+              </svg>
+              <span>Sign in with Google</span>
+            </button>
+
+            <button type="button" class="btn-social" onclick="fillDemoCreds()" title="Click to fill credentials">
+              <svg class="social-icon" viewBox="0 0 23 23" width="18" height="18">
+                <path fill="#f35325" d="M1 1h10v10H1z"/>
+                <path fill="#81bc06" d="M12 1h10v10H12z"/>
+                <path fill="#05a6f0" d="M1 12h10v10H1z"/>
+                <path fill="#ffba08" d="M12 12h10v10H12z"/>
+              </svg>
+              <span>Sign in with Microsoft</span>
+            </button>
+          </div>
+
+          <div class="login-divider-text">Or continue with SWAYAM Account</div>
+
+          <!-- Error Message Banner -->
+          <div id="login-error-msg" class="login-error-alert" style="display: none;"></div>
+
+          <!-- Login Form -->
+          <form id="login-form" onsubmit="handleLoginSubmit(event)">
+            <div class="form-group-outline">
+              <label for="login-email" class="floating-label">Email</label>
+              <input type="email" id="login-email" class="input-outline" placeholder="Enter your email" required autocomplete="username" />
+            </div>
+
+            <div class="form-group-outline">
+              <label for="login-password" class="floating-label">Password</label>
+              <input type="password" id="login-password" class="input-outline" placeholder="Enter your password" required autocomplete="current-password" />
+            </div>
+
+            <div class="forgot-pass-row">
+              <a href="#" class="forgot-pass-link">Forgot your password?</a>
+            </div>
+
+            <!-- Cloudflare Turnstile Box -->
+            <div class="cloudflare-turnstile-box">
+              <div class="turnstile-left">
+                <div class="turnstile-spinner"></div>
+                <span class="turnstile-text">Verifying...</span>
+              </div>
+              <div class="turnstile-right">
+                <svg class="cloudflare-icon" viewBox="0 0 120 38" width="92" height="28">
+                  <path fill="#F38020" d="M22 20c0-3.8 3-7 7.2-7 1.4 0 2.8.5 3.8 1.4C34.5 11.2 38 8 42.5 8c5.2 0 9.5 4.2 9.5 9.5 0 .5-.1 1-.2 1.4 1.8.5 3.2 2.1 3.2 4.1 0 2.3-1.9 4-4.2 4H25.2c-1.8 0-3.2-1.4-3.2-3 0-.8.3-1.6.8-2.2-.5-.5-.8-1.2-.8-1.8z"/>
+                  <text x="56" y="21" font-family="'Segoe UI', sans-serif" font-size="11" font-weight="700" fill="#333">CLOUDFLARE</text>
+                  <text x="66" y="31" font-family="'Segoe UI', sans-serif" font-size="8" fill="#777">Privacy • Help</text>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="login-buttons-row">
+              <button type="button" class="btn-login-cancel" onclick="clearLoginForm()">Cancel</button>
+              <button type="submit" class="btn-login-submit" id="btn-submit-login">Sign In</button>
+            </div>
+          </form>
+
+        </div><!-- end login-card -->
+      </div><!-- end login-card-container -->
+    </div><!-- end login-body -->
+
+  </div><!-- end page-login -->
+
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       PAGE 1 â€” COURSE OUTLINE
+       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <div id="page-outline" class="page">
+
+    <!-- HEADER (Course Outline Page) -->
+    <header class="header">
+      <div class="header-left">
+        <!-- Swayam Logo -->
+        <a href="#" class="swayam-logo-wrap" onclick="goToOutline(); return false;">
+          <img src="image.png" alt="Swayam" class="swayam-header-img" />
+        </a>
+      </div>
+            <nav class="header-nav">
+        <!-- Ai+ Powered Widgets -->
+        <a href="#" class="nav-powered-widgets">
+          <span class="ai-widget-badge">
+            <span class="ai-txt">Ai</span><span class="ai-plus-dot">+</span>
+          </span>
+          <span class="powered-widgets-txt">Powered Widgets</span>
+        </a>
+        <a href="#" class="nav-link">About the course</a>
+        <a href="#" class="nav-link">Announcements</a>
+        <a href="#" class="nav-link">My Bookmarks</a>
+        <a href="#" class="nav-link">Q&amp;A</a>
+        <!-- Accessibility stick-figure icon -->
+        <button class="nav-access-btn" title="Accessibility">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="4" r="2.2"/>
+            <path d="M19 8.5H5a1 1 0 0 1 0-2h14a1 1 0 0 1 0 2zm-5.5 1.5v4.5h2V20a1 1 0 0 1-2 0v-4.5h-3V20a1 1 0 0 1-2 0v-5.5h2V10h3z"/>
+          </svg>
+        </button>
+        <!-- Manage Exam orange button with dropdown -->
+        <button class="btn-manage-exam" onclick="goToProgress()">
+          Manage Exam <span class="exam-caret">&#9662;</span>
+        </button>
+        <!-- User avatar (Click to Sign Out) -->
+        <div class="avatar-circle" title="Girish Kanoje (Click to Sign Out)" onclick="goToLogin()">GK</div>
+      </nav>
+    </header>
+
+    <!-- BODY -->
+    <div class="page-body">
+
+      <!-- SIDEBAR â€” Course Outline -->
+      <aside class="sidebar" id="sidebar-outline">
+        <div class="sb-inner">
+
+          <div class="sb-course-title">
+            <a href="#" class="sb-title-link" onclick="goToOutline(); return false;">
+              Sensor Technologies: Physics, Fabrication, And&nbsp;Circuits
+            </a>
+          </div>
+
+          <div class="sb-progress-row">
+            <a href="#" class="sb-prog-label sb-prog-clickable" onclick="goToProgress(); return false;" title="View Student Progress Report">Course Progress</a>
+            <span class="sb-prog-pct">99.15% (8 of 9)</span>
+          </div>
+
+          <!-- Scrollable Outline -->
+          <div class="sb-outline-scroll">
+
+            <!-- About NPTEL -->
+            <div class="ol-group">
+              <div class="ol-group-hdr expanded" onclick="toggleOL(this)">
+                <span class="ol-chevron down">&#9660;</span>
+                <span class="ol-hdr-text">About NPTEL</span>
+              </div>
+              <div class="ol-group-body open">
+                <div class="ol-item active" onclick="selectOLItem(this, 'NPTEL initiative')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">NPTEL initiative</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- How does NPTEL work -->
+            <div class="ol-group">
+              <div class="ol-group-hdr expanded" onclick="toggleOL(this)">
+                <span class="ol-chevron down">&#9660;</span>
+                <span class="ol-hdr-text">How does an NPTEL online course work?</span>
+              </div>
+              <div class="ol-group-body open">
+                <div class="ol-item" onclick="selectOLItem(this, 'Welcome to NPTEL open online course')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Welcome to NPTEL open online course</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Information about the course and accessing the content')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Information about the course and accessing the content</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Announcement')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Announcement</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Discussion Forum: Do you have a doubt or question')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Discussion Forum: Do you have a doubt or question</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Know your scores in the Assignments')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Know your scores in the Assignments</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'What you should know about the final certification exam')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">What you should know about the final certification exam</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Certification criteria')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Certification criteria</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Best practices to maximize the learning from the online course')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Best practices to maximize the learning from the online course</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Guidelines and Timelines')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Guidelines and Timelines</span>
+                </div>
+              </div>
+            </div>
+
+                        <!-- Week 0 -->
+            <div class="ol-group">
+              <div class="ol-group-hdr collapsed" onclick="toggleOL(this)">
+                <span class="ol-chevron right">&#9654;</span>
+                <span class="ol-hdr-text week-hdr">Week 0</span>
+              </div>
+              <div class="ol-group-body">
+                <div class="ol-item" onclick="selectOLItem(this, 'Practice: Week 0 : Assignment (Non Graded)')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Practice: Week 0 : Assignment (Non Graded)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Week 1 -->
+            <div class="ol-group">
+              <div class="ol-group-hdr collapsed" onclick="toggleOL(this)">
+                <span class="ol-chevron right">&#9654;</span>
+                <span class="ol-hdr-text week-hdr">Week 1</span>
+              </div>
+              <div class="ol-group-body">
+                <div class="ol-item" onclick="selectOLItem(this, 'Sensor Parameters-I')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Sensor Parameters-I</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Week 1 Feedback Form: Sensor Technologies: Physics, Fabrication, and Circuits')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Week 1 Feedback Form: Sensor Technologies: Physics, Fabrication, and Circuits</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Quiz: Week 1 : Assignment')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Quiz: Week 1 : Assignment</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Week 2 -->
+            <div class="ol-group">
+              <div class="ol-group-hdr collapsed" onclick="toggleOL(this)">
+                <span class="ol-chevron right">&#9654;</span>
+                <span class="ol-hdr-text week-hdr">Week 2</span>
+              </div>
+              <div class="ol-group-body">
+                <div class="ol-item" onclick="selectOLItem(this, 'Sensor Parameters-II')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Sensor Parameters-II</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Sensor Parameters-III')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Sensor Parameters-III</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Sensor Parameters-IV')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Sensor Parameters-IV</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Sensor Parameters-V')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Sensor Parameters-V</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Numerical Examples')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Numerical Examples</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Week 2 Feedback Form: Sensor Technologies: Physics, Fabrication, and Circuits')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Week 2 Feedback Form: Sensor Technologies: Physics, Fabrication, and Circuits</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Quiz: Week 2 : Assignment')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Quiz: Week 2 : Assignment</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Week 3 -->
+            <div class="ol-group">
+              <div class="ol-group-hdr collapsed" onclick="toggleOL(this)">
+                <span class="ol-chevron right">&#9654;</span>
+                <span class="ol-hdr-text week-hdr">Week 3</span>
+              </div>
+              <div class="ol-group-body">
+                <div class="ol-item" onclick="selectOLItem(this, 'Introduction: Physics of Sensors')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Introduction: Physics of Sensors</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Capacitive Sensor Architecture')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Capacitive Sensor Architecture</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Different Types of Capacitive Sensors')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Different Types of Capacitive Sensors</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Thermal Sensors Basics')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Thermal Sensors Basics</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Dynamic Condition of Thermal Sensors')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Dynamic Condition of Thermal Sensors</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Week 3 Feedback Form: Sensor Technologies: Physics, Fabrication, and Circuits')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Week 3 Feedback Form: Sensor Technologies: Physics, Fabrication, and Circuits</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Quiz: Week 3 : Assignment')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Quiz: Week 3 : Assignment</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Week 4 -->
+            <div class="ol-group">
+              <div class="ol-group-hdr collapsed" onclick="toggleOL(this)">
+                <span class="ol-chevron right">&#9654;</span>
+                <span class="ol-hdr-text week-hdr">Week 4</span>
+              </div>
+              <div class="ol-group-body">
+                <div class="ol-item" onclick="selectOLItem(this, 'Classification of Thermal Sensors')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Classification of Thermal Sensors</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Chemical Sensor Basics')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Chemical Sensor Basics</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Electrochemical Sensors')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Electrochemical Sensors</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Impedimetric Sensors')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Impedimetric Sensors</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Numerical Examples')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Numerical Examples</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Week 4 Feedback Form: Sensor Technologies: Physics, Fabrication, and Circuits')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Week 4 Feedback Form: Sensor Technologies: Physics, Fabrication, and Circuits</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Assignment 4 solution')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Assignment 4 solution</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Quiz: Week 4 : Assignment')">
+                  <span class="ol-tick-circle gray"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#9ca3af" stroke-width="1.3"/></svg></span>
+                  <span class="ol-item-label">Quiz: Week 4 : Assignment</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Week 5 -->
+            <div class="ol-group">
+              <div class="ol-group-hdr collapsed" onclick="toggleOL(this)">
+                <span class="ol-chevron right">&#9654;</span>
+                <span class="ol-hdr-text week-hdr">Week 5</span>
+              </div>
+              <div class="ol-group-body">
+                <div class="ol-item" onclick="selectOLItem(this, 'Physics of Optical Sensors')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Physics of Optical Sensors</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Physics of Magnetic Sensors')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Physics of Magnetic Sensors</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Physics of Acoustic Sensors')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Physics of Acoustic Sensors</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Physics of Microfluidic Sensors')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Physics of Microfluidic Sensors</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Various Sensor Geometries and Examples')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Various Sensor Geometries and Examples</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Week 5 Feedback Form: Sensor Technologies: Physics, Fabrication, and Circuits')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Week 5 Feedback Form: Sensor Technologies: Physics, Fabrication, and Circuits</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Assignment 5 solution')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Assignment 5 solution</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Quiz: Week 5 : Assignment')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Quiz: Week 5 : Assignment</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Week 6 -->
+            <div class="ol-group">
+              <div class="ol-group-hdr collapsed" onclick="toggleOL(this)">
+                <span class="ol-chevron right">&#9654;</span>
+                <span class="ol-hdr-text week-hdr">Week 6</span>
+              </div>
+              <div class="ol-group-body">
+                <div class="ol-item" onclick="selectOLItem(this, 'Microfabrication Technologies')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Microfabrication Technologies</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Deposition Techniques')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Deposition Techniques</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Physical Vapor Deposition')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Physical Vapor Deposition</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Chemical Vapor Deposition')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Chemical Vapor Deposition</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Patterning Techniques')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Patterning Techniques</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Week 6 Feedback Form: Sensor Technologies: Physics, Fabrication, and Circuits')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Week 6 Feedback Form: Sensor Technologies: Physics, Fabrication, and Circuits</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Assignment 6 solution')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Assignment 6 solution</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Quiz: Week 6 : Assignment 6')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Quiz: Week 6 : Assignment 6</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Week 7 -->
+            <div class="ol-group">
+              <div class="ol-group-hdr collapsed" onclick="toggleOL(this)">
+                <span class="ol-chevron right">&#9654;</span>
+                <span class="ol-hdr-text week-hdr">Week 7</span>
+              </div>
+              <div class="ol-group-body">
+                <div class="ol-item" onclick="selectOLItem(this, 'Lithography Techniques')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Lithography Techniques</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Basics of Etching Techniques')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Basics of Etching Techniques</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Dry Etching Techniques')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Dry Etching Techniques</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Optical and Electron Microscopy')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Optical and Electron Microscopy</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Other Microscopy Techniques')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Other Microscopy Techniques</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Week 7 Feedback Form: Sensor Technologies: Physics, Fabrication, and Circuits')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Week 7 Feedback Form: Sensor Technologies: Physics, Fabrication, and Circuits</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Quiz: Week 7 : Assignment 7')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Quiz: Week 7 : Assignment 7</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Week 8 -->
+            <div class="ol-group">
+              <div class="ol-group-hdr collapsed" onclick="toggleOL(this)">
+                <span class="ol-chevron right">&#9654;</span>
+                <span class="ol-hdr-text week-hdr">Week 8</span>
+              </div>
+              <div class="ol-group-body">
+                <div class="ol-item" onclick="selectOLItem(this, 'Sensor System: Basic Circuits')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Sensor System: Basic Circuits</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Amplifier Circuits')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Amplifier Circuits</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Instrumentation Amplifier')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Instrumentation Amplifier</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Filter Circuits')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Filter Circuits</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Sensor System: Experimental Demonstration')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Sensor System: Experimental Demonstration</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Week 8 Feedback Form: Sensor Technologies: Physics, Fabrication, and Circuits')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Week 8 Feedback Form: Sensor Technologies: Physics, Fabrication, and Circuits</span>
+                </div>
+                <div class="ol-item" onclick="selectOLItem(this, 'Quiz: Week 8 : Assignment 8')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Quiz: Week 8 : Assignment 8</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- DOWNLOAD VIDEOS -->
+            <div class="ol-group">
+              <div class="ol-group-hdr collapsed" onclick="toggleOL(this)">
+                <span class="ol-chevron right">&#9654;</span>
+                <span class="ol-hdr-text week-hdr other-hdr">DOWNLOAD VIDEOS</span>
+              </div>
+              <div class="ol-group-body">
+                <div class="ol-item" onclick="selectOLItem(this, 'Download Videos')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Download Videos</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Text Transcript -->
+            <div class="ol-group">
+              <div class="ol-group-hdr collapsed" onclick="toggleOL(this)">
+                <span class="ol-chevron right">&#9654;</span>
+                <span class="ol-hdr-text week-hdr other-hdr">Text Transcript</span>
+              </div>
+              <div class="ol-group-body">
+                <div class="ol-item" onclick="selectOLItem(this, 'Text Transcripts')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Text Transcripts</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Problem Solving Session - July 2026 -->
+            <div class="ol-group">
+              <div class="ol-group-hdr collapsed" onclick="toggleOL(this)">
+                <span class="ol-chevron right">&#9654;</span>
+                <span class="ol-hdr-text week-hdr other-hdr">Problem Solving Session - July 2026</span>
+              </div>
+              <div class="ol-group-body">
+                <div class="ol-item" onclick="selectOLItem(this, 'Problem Solving Session')">
+                  <span class="ol-tick-circle"><svg width="15" height="15" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6.2" stroke="#22c55e" stroke-width="1.3"/><polyline points="4.8,8.2 7,10.4 11.2,5.8" stroke="#22c55e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                  <span class="ol-item-label">Problem Solving Session</span>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- end sb-outline-scroll -->
+        </div>
+      </aside>
+
+      <!-- RESIZE HANDLE -->
+      <div class="resize-handle" id="rh1"><div class="resize-thumb"></div></div>
+
+      <!-- MAIN CONTENT â€” Course Outline -->
+      <main class="main-area" id="main-outline">
+
+                <!-- Content Topbar -->
+        <div class="content-topbar" id="content-topbar">
+          <button class="reading-pill" id="reading-pill-btn">Reading Material: NPTEL initia...</button>
+          <div class="topbar-icons">
+            <button class="tb-icon-btn bookmark-btn" title="Bookmark this item">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0284c7"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+            </button>
+            <button class="tb-icon-btn expand-btn" title="Expand view">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Reading Content Area -->
+        <div class="reading-content" id="reading-content">
+          <p class="reading-body-text">
+            <a href="https://nptel.ac.in" target="_blank" class="content-link">Click here</a> to view the NPTEL and its initiative
+          </p>
+        </div>
+
+      </main>
+    </div><!-- end page-body -->
+  </div><!-- end page-outline -->
+
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       PAGE 2 â€” STUDENT PROGRESS REPORT
+       â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <div id="page-progress" class="page">
+
+    <!-- HEADER (Progress Report Page â€” no Manage Exam btn, no Powered Widgets) -->
+    <header class="header">
+      <div class="header-left">
+        <!-- Swayam Logo -->
+        <a href="#" class="swayam-logo-wrap" onclick="goToOutline(); return false;">
+          <img src="image.png" alt="Swayam" class="swayam-header-img" />
+        </a>
+      </div>
+            <nav class="header-nav">
+        <a href="#" class="nav-link" onclick="goToOutline(); return false;">About the course</a>
+        <a href="#" class="nav-link">Announcements</a>
+        <a href="#" class="nav-link">My Bookmarks</a>
+        <a href="#" class="nav-link">Q&amp;A</a>
+        <button class="nav-access-btn" title="Accessibility">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="4" r="2.2"/>
+            <path d="M19 8.5H5a1 1 0 0 1 0-2h14a1 1 0 0 1 0 2zm-5.5 1.5v4.5h2V20a1 1 0 0 1-2 0v-4.5h-3V20a1 1 0 0 1-2 0v-5.5h2V10h3z"/>
+          </svg>
+        </button>
+        <!-- User avatar (Click to Sign Out) -->
+        <div class="avatar-circle" title="Girish Kanoje (Click to Sign Out)" onclick="goToLogin()">GK</div>
+      </nav>
+    </header>
+
+    <!-- BODY -->
+    <div class="page-body">
+
+      <!-- SIDEBAR â€” Progress Report -->
+      <aside class="sidebar" id="sidebar-progress">
+        <div class="sb-inner">
+
+          <div class="sb-course-title">
+            <a href="#" class="sb-title-link" onclick="goToOutline(); return false;">
+              Sensor Technologies: Physics, Fabrication, And&nbsp;Circuits
+            </a>
+          </div>
+
+          <!-- Circular Progress (larger, centered) -->
+          <div class="sb-circ-progress-wrap">
+            <div class="circ-chart-container">
+              <svg class="circ-svg" viewBox="0 0 120 120">
+                <circle class="circ-track" cx="60" cy="60" r="48"/>
+                <circle class="circ-bar" cx="60" cy="60" r="48"
+                  stroke-dasharray="301.59"
+                  stroke-dashoffset="2.56"/>
+              </svg>
+              <div class="circ-center-text">99.15%</div>
+            </div>
+            <div class="circ-caption">Course Progress</div>
+          </div>
+
+          <!-- Student Details -->
+          <div class="sb-student-details">
+            <hr class="sdd-divider" />
+            <div class="sdd-row">
+              <div class="sdd-label">Date Enrolled</div>
+              <div class="sdd-value">2026-07-17</div>
+            </div>
+            <div class="sdd-row">
+              <div class="sdd-label">Email</div>
+              <div class="sdd-value sdd-email">girish.kanoje23@pccoepune.org</div>
+            </div>
+            <div class="sdd-row">
+              <div class="sdd-label">Name</div>
+              <div class="sdd-value sdd-bold">Girish Kanoje</div>
+            </div>
+          </div>
+
+        </div>
+      </aside>
+
+      <!-- RESIZE HANDLE -->
+      <div class="resize-handle" id="rh2"><div class="resize-thumb"></div></div>
+
+      <!-- MAIN CONTENT â€” Progress Report -->
+      <main class="main-area" id="main-progress">
+
+        <div class="pr-inner">
+          <div class="pr-back-row">
+            <a href="#" class="pr-back-link" onclick="goToOutline(); return false;">
+              &#8592; Back to Course Outline
+            </a>
+          </div>
+
+          <h1 class="pr-heading">Student Progress Report</h1>
+
+          <!-- â”€â”€ Accordion 1: Assignment Scores â”€â”€ -->
+          <div class="acc-panel" id="acc1">
+            <button class="acc-header" onclick="toggleAcc('acc1')" aria-expanded="false">
+              <span class="acc-title">Assignment Scores</span>
+              <span class="acc-chevron"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#9ca3af" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </button>
+            <div class="acc-body" id="acc1-body">
+              <table class="score-tbl">
+                <thead>
+                  <tr>
+                    <th class="col-title">Title</th>
+                    <th class="col-score">Score</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td><a href="#" class="tbl-link">Week 1 : Assignment</a></td><td>100</td></tr>
+                  <tr><td><a href="#" class="tbl-link">Week 2 : Assignment</a></td><td>100</td></tr>
+                  <tr><td><a href="#" class="tbl-link">Week 3 : Assignment</a></td><td>100</td></tr>
+                  <tr><td><a href="#" class="tbl-link">Week 4 : Assignment</a></td><td>-</td></tr>
+                  <tr><td><a href="#" class="tbl-link">Week 5 : Assignment 5</a></td><td>95</td></tr>
+                  <tr><td><a href="#" class="tbl-link">Week 6 : Assignment 6</a></td><td>90</td></tr>
+                  <tr><td><a href="#" class="tbl-link">Week 7 : Assignment 7</a></td><td>100</td></tr>
+                  <tr><td><a href="#" class="tbl-link">Week 8 : Assignment 8</a></td><td>100</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- â”€â”€ Accordion 2: Unit Wise Progress â”€â”€ -->
+          <div class="acc-panel" id="acc2">
+            <button class="acc-header" onclick="toggleAcc('acc2')" aria-expanded="true">
+              <span class="acc-title">Unit Wise Progress</span>
+              <span class="acc-chevron"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#9ca3af" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </button>
+            <div class="acc-body open" id="acc2-body">
+              <p class="unit-note-text">
+                <a href="#" class="tbl-link">Note : The latest Course and Unit progress will be reflected within 24 hours.</a>
+              </p>
+              <div class="unit-tbl-scroll">
+                <table class="unit-tbl">
+                  <thead>
+                    <tr>
+                      <th class="ut-col-unit">Unit</th>
+                      <th class="ut-col-lesson">Lesson Progress</th>
+                      <th class="ut-col-assign">Assignments Progress</th>
+                    </tr>
+                  </thead>
+                                    <tbody>
+                    <tr>
+                      <td>About NPTEL</td>
+                      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-pct">100%</span></div></td>
+                      <td><span class="dash-val">-</span></td>
+                    </tr>
+                    <tr>
+                      <td>How does an NPTEL online course work?</td>
+                      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-pct">100%</span></div></td>
+                      <td><span class="dash-val">-</span></td>
+                    </tr>
+                    <tr>
+                      <td>Week 1</td>
+                      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-pct">100%</span></div></td>
+                      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-pct">100%</span></div></td>
+                    </tr>
+                    <tr>
+                      <td>Week 2</td>
+                      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-pct">100%</span></div></td>
+                      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-pct">100%</span></div></td>
+                    </tr>
+                    <tr>
+                      <td>Week 3</td>
+                      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-pct">100%</span></div></td>
+                      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-pct">100%</span></div></td>
+                    </tr>
+                    <tr>
+                      <td>Week 4</td>
+                      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-pct">100%</span></div></td>
+                      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill zero" style="width:0%"></div></div><span class="bar-pct">0%</span></div></td>
+                    </tr>
+                    <tr>
+                      <td>Week 5</td>
+                      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-pct">100%</span></div></td>
+                      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-pct">100%</span></div></td>
+                    </tr>
+                    <tr>
+                      <td>Week 6</td>
+                      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-pct">100%</span></div></td>
+                      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-pct">100%</span></div></td>
+                    </tr>
+                    <tr>
+                      <td>Week 7</td>
+                      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-pct">100%</span></div></td>
+                      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-pct">100%</span></div></td>
+                    </tr>
+                    <tr>
+                      <td>Week 8</td>
+                      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-pct">100%</span></div></td>
+                      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-pct">100%</span></div></td>
+                    </tr>
+                    <tr>
+                      <td>DOWNLOAD VIDEOS</td>
+                      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-pct">100%</span></div></td>
+                      <td><span class="dash-val">-</span></td>
+                    </tr>
+                    <tr>
+                      <td>Text Transcript</td>
+                      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-pct">100%</span></div></td>
+                      <td><span class="dash-val">-</span></td>
+                    </tr>
+                    <tr>
+                      <td>Problem Solving Session - July 2026</td>
+                      <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><span class="bar-pct">100%</span></div></td>
+                      <td><span class="dash-val">-</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- â”€â”€ Accordion 3: Grading and Certifications Policy â”€â”€ -->
+          <div class="acc-panel" id="acc3">
+            <button class="acc-header" onclick="toggleAcc('acc3')" aria-expanded="false">
+              <span class="acc-title">Grading and Certifications Policy</span>
+              <span class="acc-chevron"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8L9.5 4.5" stroke="#9ca3af" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            </button>
+            <div class="acc-body" id="acc3-body">
+              <div class="grading-text-area">
+                <p>The course is free to enroll and learn from. But if you want a certificate, you have to register and write the proctored exam conducted by us in person at any of the <a href="#" class="tbl-link">designated exam centres</a>. The exam is optional for a fee of Rs 1000/- (Rupees one thousand only).</p>
+                <p><strong>Date and Time of Exams: <a href="#" class="tbl-link">September 20, 2026</a></strong> Morning session 8am to 12 noon; Afternoon Session 2pm to 5pm.</p>
+                <p>Registration url: Announcements will be made when the registration form is open for registrations.</p>
+                <p>The online registration form has to be filled and the certification exam fee needs to be paid. More details will be made available when the exam registration form is published. If there are any changes, it will be mentioned then.</p>
+                <p>Please check the form for more details on the cities where the exams will be held, the conditions you agree to when you fill the form etc.</p>
+                <br/>
+                <p class="cert-heading">CRITERIA TO GET A CERTIFICATE</p>
+                <p>Average assignment score = 25% of average of best 6 assignments out of the total 8 assignments given in the course.</p>
+                <p>Exam score = 75% of <a href="#" class="tbl-link">the proctored certification exam</a> score out of 100</p>
+                <p><strong>Final score = Average assignment score + Exam score</strong></p>
+                <p>Please note that assignments encompass all types (including quizzes, programming tasks, and essay submissions) available in the specific week.</p>
+                <p>YOU WILL BE ELIGIBLE FOR A CERTIFICATE ONLY IF AVERAGE ASSIGNMENT SCORE &gt;=10/25 AND EXAM SCORE &gt;= 30/75. If one of the 2 criteria is not met, you will not get the certificate even if the Final score &gt;= 40/100.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Footer notice -->
+          <div class="pr-footer">
+            <p>Announcement: You are currently receiving course-related emails. <a href="#" class="tbl-link">Click here to unsubscribe.</a></p>
+            <p>Discussion Form:<br>If you want to unsubscribe from forum <a href="#" class="tbl-link">Click here.</a></p>
+          </div>
+
+        </div><!-- end pr-inner -->
+      </main>
+
+    </div><!-- end page-body -->
+  </div><!-- end page-progress -->
+
+  <script src="script.js"></script>
+</body>
+</html>
+
