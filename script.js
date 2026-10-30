@@ -3,9 +3,8 @@
    AUTHENTICATION & LOGIN (Page 0)
    ────────────────────────────────────────────────── */
 
-const VALID_USER_EMAIL = 'pouras.suryavanshi23@pccoepune.org';
-const ALT_USER_EMAIL = 'pourassuryawanshi2@gmail.com';
-const VALID_USER_PASS = 'pouras';
+const VALID_USER_EMAIL = 'girish.kanoje23@pccoepune.org';
+const VALID_USER_PASS = 'girishkanoje23';
 
 function goToLogin() {
   document.getElementById('page-login').classList.add('active');
@@ -20,7 +19,7 @@ function handleLoginSubmit(event) {
   const errBox = document.getElementById('login-error-msg');
   const submitBtn = document.getElementById('btn-submit-login');
 
-  if ((emailInput.toLowerCase() === VALID_USER_EMAIL.toLowerCase() || emailInput.toLowerCase() === ALT_USER_EMAIL.toLowerCase()) && passInput === VALID_USER_PASS) {
+  if (emailInput.toLowerCase() === VALID_USER_EMAIL.toLowerCase() && passInput === VALID_USER_PASS) {
     errBox.style.display = 'none';
     submitBtn.textContent = 'Signing in...';
     submitBtn.disabled = true;
